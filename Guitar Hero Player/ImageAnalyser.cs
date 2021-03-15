@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace Guitar_Hero_Player
@@ -15,33 +14,23 @@ namespace Guitar_Hero_Player
 
 	public static class ImageAnalyser
 	{
-		public static double AnalysePanel(Bitmap image, Panel panel)
+		public static float AnalyseBrightness(Bitmap image, Control control)
 		{
-			var totalDistance = 0d;
+			var totalBrightness = 0.0f;
 			var pixels = 0;
-			for (var y = panel.Top; y < panel.Top + panel.Height; y++)
+			for (var y = control.Top; y < control.Top + control.Height; y++)
 			{
-				for (var x = panel.Left; x < panel.Left + panel.Width; x++)
+				for (var x = control.Left; x < control.Left + control.Width; x++)
 				{
 					if (x < image.Width && y < image.Height)
 					{
 						pixels++;
 						var pixel = image.GetPixel(x, y);
-						totalDistance += pixel.GetBrightness();
-						//totalDistance += GetColourDistance(baseColor, pixel);
+						totalBrightness += pixel.GetBrightness();
 					}
 				}
 			}
-			//System.Drawing.Color color = System.Drawing.Color.FromArgb(red, green, blue);
-			//float hue = color.GetHue();
-			//float saturation = color.GetSaturation();
-			//float lightness = color.GetBrightness();
-			return totalDistance / pixels;
-		}
-
-		private static double GetColourDistance(Color e1, Color e2)
-		{
-			return Math.Sqrt((e1.R - e2.R) * (e1.R - e2.R) + (e1.G - e2.G) * (e1.G - e2.G) + (e1.B - e2.B) * (e1.B - e2.B));
+			return totalBrightness / pixels;
 		}
 	}
 }
