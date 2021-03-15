@@ -1,5 +1,5 @@
 ﻿
-namespace Guitar_Hero_Player.Controls
+namespace GuitarHeroPlayer.Controls
 {
 	partial class NoteDetector
 	{

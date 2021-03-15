@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
 	public static class ScreenShot
 	{

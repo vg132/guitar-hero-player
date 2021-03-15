@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
 	public partial class Form1 : Form
 	{

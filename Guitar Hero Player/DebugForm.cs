@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
 	public partial class DebugForm : Form
 	{

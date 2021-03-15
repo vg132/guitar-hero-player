@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
 	static class Program
 	{

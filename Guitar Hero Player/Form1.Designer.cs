@@ -1,5 +1,5 @@
 ﻿
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
 	partial class Form1
 	{
@@ -32,11 +32,11 @@ namespace Guitar_Hero_Player
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.timer1 = new System.Windows.Forms.Timer(this.components);
-			this.orangeNoteDetector = new Guitar_Hero_Player.Controls.NoteDetector();
-			this.redNoteDetector = new Guitar_Hero_Player.Controls.NoteDetector();
-			this.greenNoteDetector = new Guitar_Hero_Player.Controls.NoteDetector();
-			this.yellowNoteDetector = new Guitar_Hero_Player.Controls.NoteDetector();
-			this.blueNoteDetector = new Guitar_Hero_Player.Controls.NoteDetector();
+			this.orangeNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
+			this.redNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
+			this.greenNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
+			this.yellowNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
+			this.blueNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
 			this.SuspendLayout();
 			// 
 			// timer1
@@ -50,7 +50,7 @@ namespace Guitar_Hero_Player
 			this.orangeNoteDetector.BackColor = System.Drawing.Color.Orange;
 			this.orangeNoteDetector.Location = new System.Drawing.Point(802, 569);
 			this.orangeNoteDetector.Name = "orangeNoteDetector";
-			this.orangeNoteDetector.NoteType = Guitar_Hero_Player.Controls.NoteType.Orange;
+			this.orangeNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Orange;
 			this.orangeNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.orangeNoteDetector.TabIndex = 5;
 			// 
@@ -59,7 +59,7 @@ namespace Guitar_Hero_Player
 			this.redNoteDetector.BackColor = System.Drawing.Color.Red;
 			this.redNoteDetector.Location = new System.Drawing.Point(559, 569);
 			this.redNoteDetector.Name = "redNoteDetector";
-			this.redNoteDetector.NoteType = Guitar_Hero_Player.Controls.NoteType.Red;
+			this.redNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Red;
 			this.redNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.redNoteDetector.TabIndex = 6;
 			// 
@@ -68,7 +68,7 @@ namespace Guitar_Hero_Player
 			this.greenNoteDetector.BackColor = System.Drawing.Color.Green;
 			this.greenNoteDetector.Location = new System.Drawing.Point(481, 569);
 			this.greenNoteDetector.Name = "greenNoteDetector";
-			this.greenNoteDetector.NoteType = Guitar_Hero_Player.Controls.NoteType.Green;
+			this.greenNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Green;
 			this.greenNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.greenNoteDetector.TabIndex = 7;
 			// 
@@ -77,7 +77,7 @@ namespace Guitar_Hero_Player
 			this.yellowNoteDetector.BackColor = System.Drawing.Color.Yellow;
 			this.yellowNoteDetector.Location = new System.Drawing.Point(641, 569);
 			this.yellowNoteDetector.Name = "yellowNoteDetector";
-			this.yellowNoteDetector.NoteType = Guitar_Hero_Player.Controls.NoteType.Yellow;
+			this.yellowNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Yellow;
 			this.yellowNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.yellowNoteDetector.TabIndex = 8;
 			// 
@@ -86,7 +86,7 @@ namespace Guitar_Hero_Player
 			this.blueNoteDetector.BackColor = System.Drawing.Color.Blue;
 			this.blueNoteDetector.Location = new System.Drawing.Point(721, 569);
 			this.blueNoteDetector.Name = "blueNoteDetector";
-			this.blueNoteDetector.NoteType = Guitar_Hero_Player.Controls.NoteType.Blue;
+			this.blueNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Blue;
 			this.blueNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.blueNoteDetector.TabIndex = 9;
 			// 

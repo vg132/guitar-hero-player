@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
   public class WindowsAPI
   {

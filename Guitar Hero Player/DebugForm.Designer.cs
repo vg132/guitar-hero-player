@@ -1,5 +1,5 @@
 ﻿
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
 	partial class DebugForm
 	{

@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Guitar_Hero_Player.Controls
+namespace GuitarHeroPlayer.Controls
 {
 	public enum NoteType
 	{

@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace Guitar_Hero_Player
+namespace GuitarHeroPlayer
 {
 	public class ImageData
 	{
