@@ -37,6 +37,8 @@ namespace GuitarHeroPlayer
 			this.greenNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
 			this.yellowNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
 			this.blueNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
+			this.gameRunningDetectorRock = new GuitarHeroPlayer.Controls.BrightnessDetector();
+			this.gameRunningDetectorScore = new GuitarHeroPlayer.Controls.BrightnessDetector();
 			this.SuspendLayout();
 			// 
 			// gameTimer
@@ -53,6 +55,7 @@ namespace GuitarHeroPlayer
 			this.orangeNoteDetector.Location = new System.Drawing.Point(802, 569);
 			this.orangeNoteDetector.Name = "orangeNoteDetector";
 			this.orangeNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Orange;
+			this.orangeNoteDetector.SendKeys = true;
 			this.orangeNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.orangeNoteDetector.TabIndex = 5;
 			// 
@@ -64,6 +67,7 @@ namespace GuitarHeroPlayer
 			this.redNoteDetector.Location = new System.Drawing.Point(559, 569);
 			this.redNoteDetector.Name = "redNoteDetector";
 			this.redNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Red;
+			this.redNoteDetector.SendKeys = true;
 			this.redNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.redNoteDetector.TabIndex = 6;
 			// 
@@ -75,6 +79,7 @@ namespace GuitarHeroPlayer
 			this.greenNoteDetector.Location = new System.Drawing.Point(481, 569);
 			this.greenNoteDetector.Name = "greenNoteDetector";
 			this.greenNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Green;
+			this.greenNoteDetector.SendKeys = true;
 			this.greenNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.greenNoteDetector.TabIndex = 7;
 			// 
@@ -86,6 +91,7 @@ namespace GuitarHeroPlayer
 			this.yellowNoteDetector.Location = new System.Drawing.Point(641, 569);
 			this.yellowNoteDetector.Name = "yellowNoteDetector";
 			this.yellowNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Yellow;
+			this.yellowNoteDetector.SendKeys = true;
 			this.yellowNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.yellowNoteDetector.TabIndex = 8;
 			// 
@@ -97,8 +103,31 @@ namespace GuitarHeroPlayer
 			this.blueNoteDetector.Location = new System.Drawing.Point(721, 569);
 			this.blueNoteDetector.Name = "blueNoteDetector";
 			this.blueNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Blue;
+			this.blueNoteDetector.SendKeys = true;
 			this.blueNoteDetector.Size = new System.Drawing.Size(12, 12);
 			this.blueNoteDetector.TabIndex = 9;
+			// 
+			// gameRunningDetectorRock
+			// 
+			this.gameRunningDetectorRock.Location = new System.Drawing.Point(926, 634);
+			this.gameRunningDetectorRock.LowerThreshold = 0.27F;
+			this.gameRunningDetectorRock.Name = "gameRunningDetectorRock";
+			this.gameRunningDetectorRock.Size = new System.Drawing.Size(112, 20);
+			this.gameRunningDetectorRock.TabIndex = 10;
+			this.gameRunningDetectorRock.UpperThreshold = 0.28F;
+			this.gameRunningDetectorRock.EntersThreshold += new System.EventHandler(this.gameRunningDetector_EntersThreshold);
+			this.gameRunningDetectorRock.ExitsThreshold += new System.EventHandler(this.gameRunningDetector_ExitsThreshold);
+			// 
+			// gameRunningDetectorScore
+			// 
+			this.gameRunningDetectorScore.Location = new System.Drawing.Point(242, 634);
+			this.gameRunningDetectorScore.LowerThreshold = 0.17F;
+			this.gameRunningDetectorScore.Name = "gameRunningDetectorScore";
+			this.gameRunningDetectorScore.Size = new System.Drawing.Size(139, 20);
+			this.gameRunningDetectorScore.TabIndex = 11;
+			this.gameRunningDetectorScore.UpperThreshold = 0.18F;
+			this.gameRunningDetectorScore.EntersThreshold += new System.EventHandler(this.gameRunningDetector_EntersThreshold);
+			this.gameRunningDetectorScore.ExitsThreshold += new System.EventHandler(this.gameRunningDetector_ExitsThreshold);
 			// 
 			// Form1
 			// 
@@ -106,6 +135,8 @@ namespace GuitarHeroPlayer
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(1118, 728);
+			this.Controls.Add(this.gameRunningDetectorScore);
+			this.Controls.Add(this.gameRunningDetectorRock);
 			this.Controls.Add(this.blueNoteDetector);
 			this.Controls.Add(this.yellowNoteDetector);
 			this.Controls.Add(this.greenNoteDetector);
@@ -125,6 +156,8 @@ namespace GuitarHeroPlayer
 		private Controls.NoteDetector greenNoteDetector;
 		private Controls.NoteDetector yellowNoteDetector;
 		private Controls.NoteDetector blueNoteDetector;
+		private Controls.BrightnessDetector gameRunningDetectorRock;
+		private Controls.BrightnessDetector gameRunningDetectorScore;
 	}
 }
 

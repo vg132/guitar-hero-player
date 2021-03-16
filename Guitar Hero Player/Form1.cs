@@ -11,6 +11,7 @@ namespace GuitarHeroPlayer
 	{
 		private IList<Controls.NoteDetector> _noteDetectors = new List<Controls.NoteDetector>();
 		private bool _testing = false;
+		private bool _gameIsRunning = false;
 
 		protected override void OnLoad(EventArgs e)
 		{
@@ -67,11 +68,26 @@ namespace GuitarHeroPlayer
 			if (image != null)
 			{
 				var bitmap = new Bitmap(image);
-				foreach (var noteDetector in _noteDetectors)
+				gameRunningDetectorRock.ProcessImage(bitmap);
+				gameRunningDetectorScore.ProcessImage(bitmap);
+				if (_gameIsRunning)
 				{
-					noteDetector.ProcessImage(handle, bitmap);
+					foreach (var noteDetector in _noteDetectors)
+					{
+						noteDetector.ProcessImage(handle, bitmap);
+					}
 				}
 			}
+		}
+
+		private void gameRunningDetector_EntersThreshold(object sender, EventArgs e)
+		{
+			_gameIsRunning = gameRunningDetectorRock.IsInThreshold && gameRunningDetectorScore.IsInThreshold;
+		}
+
+		private void gameRunningDetector_ExitsThreshold(object sender, EventArgs e)
+		{
+			_gameIsRunning = false;
 		}
 	}
 }
