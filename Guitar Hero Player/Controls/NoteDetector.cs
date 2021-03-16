@@ -59,6 +59,7 @@ namespace GuitarHeroPlayer.Controls
 
 		public float BrightnessThreshold { get; set; } = 0.35f;
 		public int Delay { get; set; } = 100;
+		public bool SendKeys { get; set; } = true;
 
 		#endregion
 
@@ -87,13 +88,19 @@ namespace GuitarHeroPlayer.Controls
 
 		private void SendKeyDown(IntPtr handle)
 		{
-			WindowsAPI.SendMessage(handle, WindowsAPI.WM_KEYDOWN, Key, WindowsAPI.KEY_LPARAM);
-			WindowsAPI.SendMessage(handle, WindowsAPI.WM_CHAR, Key, WindowsAPI.KEY_LPARAM);
+			if(SendKeys)
+			{
+				WindowsAPI.SendMessage(handle, WindowsAPI.WM_KEYDOWN, Key, WindowsAPI.KEY_LPARAM);
+				WindowsAPI.SendMessage(handle, WindowsAPI.WM_CHAR, Key, WindowsAPI.KEY_LPARAM);
+			}
 		}
 
 		private void SendKeyUp(IntPtr handle)
 		{
-			WindowsAPI.SendMessage(handle, WindowsAPI.WM_KEYUP, Key, WindowsAPI.KEY_LPARAM);
+			if(SendKeys)
+			{
+				WindowsAPI.SendMessage(handle, WindowsAPI.WM_KEYUP, Key, WindowsAPI.KEY_LPARAM);
+			}
 		}
 
 		private char Key
