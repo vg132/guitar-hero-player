@@ -39,6 +39,7 @@ namespace GuitarHeroPlayer
 			this.blueNoteDetector = new GuitarHeroPlayer.Controls.NoteDetector();
 			this.gameRunningDetectorRock = new GuitarHeroPlayer.Controls.BrightnessDetector();
 			this.gameRunningDetectorScore = new GuitarHeroPlayer.Controls.BrightnessDetector();
+			this.button1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// gameTimer
@@ -50,7 +51,7 @@ namespace GuitarHeroPlayer
 			// orangeNoteDetector
 			// 
 			this.orangeNoteDetector.BackColor = System.Drawing.Color.Orange;
-			this.orangeNoteDetector.BrightnessThreshold = 0.35F;
+			this.orangeNoteDetector.BrightnessThreshold = 0.5F;
 			this.orangeNoteDetector.Delay = 100;
 			this.orangeNoteDetector.Location = new System.Drawing.Point(802, 569);
 			this.orangeNoteDetector.Name = "orangeNoteDetector";
@@ -62,7 +63,7 @@ namespace GuitarHeroPlayer
 			// redNoteDetector
 			// 
 			this.redNoteDetector.BackColor = System.Drawing.Color.Red;
-			this.redNoteDetector.BrightnessThreshold = 0.35F;
+			this.redNoteDetector.BrightnessThreshold = 0.5F;
 			this.redNoteDetector.Delay = 100;
 			this.redNoteDetector.Location = new System.Drawing.Point(559, 569);
 			this.redNoteDetector.Name = "redNoteDetector";
@@ -74,8 +75,8 @@ namespace GuitarHeroPlayer
 			// greenNoteDetector
 			// 
 			this.greenNoteDetector.BackColor = System.Drawing.Color.Green;
-			this.greenNoteDetector.BrightnessThreshold = 0.35F;
-			this.greenNoteDetector.Delay = 100;
+			this.greenNoteDetector.BrightnessThreshold = 0.5F;
+			this.greenNoteDetector.Delay = 90;
 			this.greenNoteDetector.Location = new System.Drawing.Point(481, 569);
 			this.greenNoteDetector.Name = "greenNoteDetector";
 			this.greenNoteDetector.NoteType = GuitarHeroPlayer.Controls.NoteType.Green;
@@ -86,7 +87,7 @@ namespace GuitarHeroPlayer
 			// yellowNoteDetector
 			// 
 			this.yellowNoteDetector.BackColor = System.Drawing.Color.Yellow;
-			this.yellowNoteDetector.BrightnessThreshold = 0.35F;
+			this.yellowNoteDetector.BrightnessThreshold = 0.5F;
 			this.yellowNoteDetector.Delay = 100;
 			this.yellowNoteDetector.Location = new System.Drawing.Point(641, 569);
 			this.yellowNoteDetector.Name = "yellowNoteDetector";
@@ -98,7 +99,7 @@ namespace GuitarHeroPlayer
 			// blueNoteDetector
 			// 
 			this.blueNoteDetector.BackColor = System.Drawing.Color.Blue;
-			this.blueNoteDetector.BrightnessThreshold = 0.35F;
+			this.blueNoteDetector.BrightnessThreshold = 0.5F;
 			this.blueNoteDetector.Delay = 100;
 			this.blueNoteDetector.Location = new System.Drawing.Point(721, 569);
 			this.blueNoteDetector.Name = "blueNoteDetector";
@@ -129,12 +130,23 @@ namespace GuitarHeroPlayer
 			this.gameRunningDetectorScore.EntersThreshold += new System.EventHandler(this.gameRunningDetector_EntersThreshold);
 			this.gameRunningDetectorScore.ExitsThreshold += new System.EventHandler(this.gameRunningDetector_ExitsThreshold);
 			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(132, 118);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(75, 23);
+			this.button1.TabIndex = 12;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(1118, 728);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.gameRunningDetectorScore);
 			this.Controls.Add(this.gameRunningDetectorRock);
 			this.Controls.Add(this.blueNoteDetector);
@@ -158,6 +170,7 @@ namespace GuitarHeroPlayer
 		private Controls.NoteDetector blueNoteDetector;
 		private Controls.BrightnessDetector gameRunningDetectorRock;
 		private Controls.BrightnessDetector gameRunningDetectorScore;
+		private System.Windows.Forms.Button button1;
 	}
 }
 

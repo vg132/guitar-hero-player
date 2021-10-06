@@ -27,6 +27,8 @@ namespace GuitarHeroPlayer.Controls
 
 		#region Properties
 
+		public bool IsKeyDown => _keyDown;
+
 		public NoteType NoteType
 		{
 			get
@@ -58,6 +60,7 @@ namespace GuitarHeroPlayer.Controls
 		}
 
 		public float BrightnessThreshold { get; set; } = 0.35f;
+		public float CurrentBrightness { get; private set; }
 		public int Delay { get; set; } = 100;
 		public bool SendKeys { get; set; } = true;
 
@@ -65,8 +68,8 @@ namespace GuitarHeroPlayer.Controls
 
 		public void ProcessImage(IntPtr handle, Bitmap image)
 		{
-			var brightness = ImageAnalyser.AnalyseBrightness(image, this);
-			if (brightness >= BrightnessThreshold && !_keyDown)
+			CurrentBrightness = ImageAnalyser.AnalyseBrightness(image, this);
+			if (CurrentBrightness >= BrightnessThreshold && !_keyDown)
 			{
 				new Task(() =>
 				{
@@ -75,7 +78,7 @@ namespace GuitarHeroPlayer.Controls
 				}).Start();
 				_keyDown = true;
 			}
-			else if(brightness<BrightnessThreshold && _keyDown)
+			else if(CurrentBrightness < BrightnessThreshold && _keyDown)
 			{
 				new Task(() =>
 				{
