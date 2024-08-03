@@ -1,4 +1,6 @@
-﻿using GuitarHeroPlayer.Debug;
+﻿#if DEBUG
+using GuitarHeroPlayer.Debug;
+#endif
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,10 +26,10 @@ namespace GuitarHeroPlayer
 		protected override void OnLoad(EventArgs e)
 		{
 			base.OnLoad(e);
-
+#if DEBUG
 			var d = new Debug.DebugViewer();
 			d.Show();
-
+#endif
 			_noteDetectors.Add(greenNoteDetector);
 			_noteDetectors.Add(redNoteDetector);
 			_noteDetectors.Add(yellowNoteDetector);

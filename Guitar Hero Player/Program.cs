@@ -1,4 +1,3 @@
-using GuitarHeroPlayer.Debug;
 using System;
 using System.Windows.Forms;
 

@@ -38,7 +38,7 @@ namespace GuitarHeroPlayer.Controls
 			set
 			{
 				_noteType = value;
-				switch(value)
+				switch (value)
 				{
 					case NoteType.Green:
 						BackColor = Color.Green;
@@ -66,23 +66,51 @@ namespace GuitarHeroPlayer.Controls
 
 		#endregion
 
+		private Bitmap currentImage;
+		private Bitmap detectionImage;
+		private int imageId = 0;
+
 		public void ProcessImage(IntPtr handle, Bitmap image)
 		{
+			imageId++;
+			currentImage = image;
 			CurrentBrightness = ImageAnalyser.AnalyseBrightness(image, this);
 			if (CurrentBrightness >= BrightnessThreshold && !_keyDown)
 			{
 				new Task(() =>
 				{
+					//if (_noteType == NoteType.Green)
+					//{
+					try
+					{
+						if (detectionImage == null)
+						{
+							detectionImage = image;
+						}
+					}
+					catch { }
+					//}
 					Thread.Sleep(Delay);
+					//if (_noteType == NoteType.Green)
+					//{
+					try
+					{
+						detectionImage.Save($"c:\\temp\\GH3\\{imageId}-detection.png");
+						detectionImage.Dispose();
+						detectionImage = null;
+						currentImage.Save($"c:\\temp\\GH3\\{imageId}-send-key.png");
+					}
+					catch { }
+					//}
 					SendKeyDown(handle);
 				}).Start();
 				_keyDown = true;
 			}
-			else if(CurrentBrightness < BrightnessThreshold && _keyDown)
+			else if (CurrentBrightness < BrightnessThreshold && _keyDown)
 			{
 				new Task(() =>
 				{
-					Thread.Sleep(Delay);
+					Thread.Sleep(Delay / 2);
 					SendKeyUp(handle);
 				}).Start();
 				_keyDown = false;
@@ -91,7 +119,7 @@ namespace GuitarHeroPlayer.Controls
 
 		private void SendKeyDown(IntPtr handle)
 		{
-			if(SendKeys)
+			if (SendKeys)
 			{
 				WindowsAPI.SendMessage(handle, WindowsAPI.WM_KEYDOWN, Key, WindowsAPI.KEY_LPARAM);
 				WindowsAPI.SendMessage(handle, WindowsAPI.WM_CHAR, Key, WindowsAPI.KEY_LPARAM);
@@ -100,7 +128,7 @@ namespace GuitarHeroPlayer.Controls
 
 		private void SendKeyUp(IntPtr handle)
 		{
-			if(SendKeys)
+			if (SendKeys)
 			{
 				WindowsAPI.SendMessage(handle, WindowsAPI.WM_KEYUP, Key, WindowsAPI.KEY_LPARAM);
 			}
